@@ -1,11 +1,18 @@
 package meetcoder.study;
 
+import meetcoder.study.console.ConsoleBaseballApplication;
+import meetcoder.study.console.io.ConsolePrinter;
+import meetcoder.study.console.io.ConsoleReader;
+
 public class App {
-    public String getGreeting() {
-        return "Hello World!";
-    }
 
     public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+        ConsoleBaseballApplication application = new ConsoleBaseballApplication(
+            new ConsolePrinter(),
+            new ConsoleReader()
+        );
+
+        application.start();
     }
+
 }
