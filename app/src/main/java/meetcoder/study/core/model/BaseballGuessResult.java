@@ -1,5 +1,6 @@
 package meetcoder.study.core.model;
 
+import static meetcoder.study.ApplicationConfig.BASEBALL_NUMBER_SIZE;
 import static meetcoder.study.core.model.GuessResultType.BALL;
 import static meetcoder.study.core.model.GuessResultType.NOTHING;
 import static meetcoder.study.core.model.GuessResultType.STRIKE;
@@ -10,7 +11,7 @@ public record BaseballGuessResult(
 ) {
 
   public boolean isAllStrike() {
-    return strikeCount == BaseballNumber.BASEBALL_NUMBER_LENGTH;
+    return strikeCount == BASEBALL_NUMBER_SIZE;
   }
 
   public String summary() {

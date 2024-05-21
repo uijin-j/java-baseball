@@ -1,13 +1,14 @@
 package meetcoder.study.core.model;
 
+import static meetcoder.study.ApplicationConfig.BASEBALL_NUMBER_SIZE;
+import static meetcoder.study.ApplicationConfig.MAX_NUMBER;
+import static meetcoder.study.ApplicationConfig.MIN_NUMBER;
 import static meetcoder.study.util.Validator.validate;
 
 import java.util.Objects;
 
 public class Number {
 
-  public static final int MAX_NUMBER = 9;
-  public static final int MIN_NUMBER = 1;
   private final int number;
 
   private Number(int number) {
@@ -15,7 +16,10 @@ public class Number {
   }
 
   public static Number of(int number) {
-    validate(number >= MIN_NUMBER && number <= MAX_NUMBER, "유효하지 않은 숫자입니다.");
+    validate(number >= MIN_NUMBER && number <= MAX_NUMBER,
+        "야구 숫자는 " + MIN_NUMBER + "~" + MAX_NUMBER + "사이의 서로 다른 " + BASEBALL_NUMBER_SIZE
+            + "자리 숫자여야 합니다."
+    );
     return new Number(number);
   }
 

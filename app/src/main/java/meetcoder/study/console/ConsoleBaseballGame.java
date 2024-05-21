@@ -1,5 +1,10 @@
 package meetcoder.study.console;
 
+import static meetcoder.study.console.ConsoleMessage.CLEAR_MESSAGE;
+import static meetcoder.study.console.ConsoleMessage.END_MESSAGE;
+import static meetcoder.study.console.ConsoleMessage.INPUT_MESSAGE;
+import static meetcoder.study.console.ConsoleMessage.SETUP_MESSAGE;
+
 import meetcoder.study.console.enums.GameStatus;
 import meetcoder.study.console.io.ConsolePrinter;
 import meetcoder.study.console.io.ConsoleReader;
@@ -9,11 +14,6 @@ import meetcoder.study.util.RandomBaseballNumberGenerator;
 
 public class ConsoleBaseballGame {
 
-  private static final String SETUP_MESSAGE = "컴퓨터가 숫자를 뽑았습니다.";
-  private static final String INPUT_MESSAGE = "숫자를 입력해주세요";
-  private static final String CLEAR_MESSAGE =
-      BaseballNumber.BASEBALL_NUMBER_LENGTH + "개의 숫자를 모두 맞히셨습니다.";
-  private static final String END_MESSAGE = "게임 종료";
   private final ConsolePrinter consolePrinter;
   private final ConsoleReader consoleReader;
   private BaseballNumber baseballNumber;

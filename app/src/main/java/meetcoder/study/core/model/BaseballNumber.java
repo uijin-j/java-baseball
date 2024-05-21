@@ -1,12 +1,15 @@
 package meetcoder.study.core.model;
 
+import static meetcoder.study.ApplicationConfig.BASEBALL_NUMBER_SIZE;
+import static meetcoder.study.ApplicationConfig.MAX_NUMBER;
+import static meetcoder.study.ApplicationConfig.MIN_NUMBER;
+
 import java.util.List;
 import java.util.Objects;
 import meetcoder.study.util.Validator;
 
 public class BaseballNumber {
 
-  public static final int BASEBALL_NUMBER_LENGTH = 3;
   private final List<Number> numbers;
 
   private BaseballNumber(List<Integer> numbers) {
@@ -24,7 +27,7 @@ public class BaseballNumber {
     int strike = 0;
     int ball = 0;
 
-    for (int i = 0; i < BASEBALL_NUMBER_LENGTH; i++) {
+    for (int i = 0; i < BASEBALL_NUMBER_SIZE; i++) {
       GuessResultType result = evaluateSingleGuess(guessedNumber.numbers.get(i), i);
       if (Objects.equals(result, GuessResultType.STRIKE)) {
         strike++;
@@ -49,7 +52,7 @@ public class BaseballNumber {
   }
 
   private boolean isStrike(Number number, int position) {
-    return position < BASEBALL_NUMBER_LENGTH && numbers.get(position)
+    return position < BASEBALL_NUMBER_SIZE && numbers.get(position)
         .equals(number);
   }
 
@@ -63,7 +66,10 @@ public class BaseballNumber {
         .count();
 
     Validator.validate(
-        count == BASEBALL_NUMBER_LENGTH, "야구 숫자는 서로 다른 " + BASEBALL_NUMBER_LENGTH + "자리 숫자여야 합니다.");
+        count == BASEBALL_NUMBER_SIZE,
+        "야구 숫자는 " + MIN_NUMBER + "~" + MAX_NUMBER + "사이의 서로 다른 " + BASEBALL_NUMBER_SIZE
+            + "자리 숫자여야 합니다."
+    );
   }
 
 }
